@@ -32,7 +32,7 @@ module Amorail
 
       def amo_property(name, options = {})
         properties[name] = options
-        attr_accessor(name)
+        attr_accessor(name.parameterize.underscore)
       end
 
       def attributes
