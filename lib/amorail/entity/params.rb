@@ -22,7 +22,7 @@ module Amorail # :nodoc: all
 
       self.class.properties.each do |k, v|
         prop_id = props.send(k).id
-        prop_val = { value: send(k.parameterize.underscore) }.merge(v)
+        prop_val = { value: send(k.to_s.parameterize.underscore.to_sym) }.merge(v)
         custom_fields << { id: prop_id, values: [prop_val] }
       end
 
