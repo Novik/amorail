@@ -71,7 +71,7 @@ module Amorail
       self
     end
 
-    private
+    protected
 
     def merge_params(attrs)
       attrs.each do |k, v|

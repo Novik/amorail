@@ -103,8 +103,10 @@ module Amorail
         def parse(data)
           obj = super
           hash = {}
-          data.fetch('leads_statuses', []).each do |prop|
-            hash[prop['name']] = PropertyItem.new(prop)
+          data.fetch('pipelines', []).each do |pipeline_id,pipeline|
+            pipeline.fetch('statuses', []).each do |prop_id,prop|
+              hash[prop['name']] = PropertyItem.new(prop)
+            end
           end
           obj.statuses = hash
           obj
